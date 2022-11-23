@@ -12,10 +12,10 @@ let videoGamer
  async function init() {
      let newConnection = await connection
      videoGamer = new Gamer(newConnection)
-   loadQ()
+   load()
  }
 
- async function loadQ() {
+ async function load() {
      inquirer
          .prompt([
              {
@@ -29,7 +29,7 @@ let videoGamer
              switch (data.action) {
                  case "View all employees":
                      await videoGamer.viewEmploy()
-                     loadQ()
+                     load()
                      break
 
                  case "Add employee":
@@ -42,7 +42,7 @@ let videoGamer
 
                  case "View all roles":
                     await videoGamer.viewRoles()
-                     loadQ()
+                     load()
                      break
 
                  case "Add role":
@@ -51,7 +51,7 @@ let videoGamer
 
                  case "View all departments":
                     await videoGamer.viewDept()
-                     loadQ()
+                     load()
                      break
 
                  case "Add department":
@@ -65,15 +65,6 @@ let videoGamer
       })
 
  }
-
-
- 
-
-
-
-
-
-
 async function addEmployee() {
     const roletChoice = await videoGamer.getRoles()
     const employChoice = await videoGamer.getEmployees()
@@ -105,7 +96,7 @@ async function addEmployee() {
             await videoGamer.addEmplpy(data.firstname, data.lastname, data.roleid, data.managerid)
             console.log("new employee created ")
 
-            loadQ()
+            load()
         })
 }
 
@@ -130,7 +121,7 @@ async function updateEmpRole() {
            await videoGamer.updateRole(data.whichEmployee, data.updateRole)
             console.log("role updated")
 
-            loadQ()
+            load()
         })
 }
 
@@ -158,7 +149,7 @@ async function addRole() {
            await videoGamer.addRole(data.title, data.salary, data.department_id)
             console.log("new role created ")
 
-            loadQ()
+            load()
         })
 
 }
@@ -175,7 +166,7 @@ async function addDepartment() {
             await videoGamer.addDept(data.department_name)
             console.log("new dept created ")
 
-            loadQ()
+            load()
         })
 }
 

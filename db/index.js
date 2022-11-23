@@ -8,20 +8,20 @@ class Gamer {
 
     async viewDept(){
         const query = "select * from department"
-        const [rows, fields] = await this.connection.execute(query)
+        const [rows,] = await this.connection.execute(query)
         console.table(rows)
     }
 
     async viewRoles(){
         const query = 'SELECT employee_role.id, employee_role.title, department.department_name, employee_role.salary FROM employee_role LEFT JOIN department ON employee_role.department_id = department.id;'
-        const [rows, fields] = await this.connection.execute(query)
+        const [rows, ] = await this.connection.execute(query)
         console.table(rows)
        
     }
 
     async viewEmploy(){
         const query = "SELECT employee.id, employee.first_name, employee.last_name, department.department_name, employee_role.title, employee_role.salary, employee.manager_id FROM employee LEFT JOIN employee_role ON employee.role_id = employee_role.id LEFT JOIN department ON employee_role.department_id = department.id;"
-        const [rows, fields] = await this.connection.execute(query)
+        const [rows, ] = await this.connection.execute(query)
         console.table(rows)
     }
 
@@ -52,7 +52,7 @@ class Gamer {
 
     async getRoles(){
         const query = "select * from employee_role"
-        const [rows, fields] = await this.connection.execute(query)
+        const [rows, ] = await this.connection.execute(query)
         const roleArray =rows.map(x => {
             return{
                 name: x.title,
@@ -64,7 +64,7 @@ class Gamer {
 
     async getEmployees(){
         const query = "select * from employee"
-        const [rows, fields] = await this.connection.execute(query)
+        const [rows,] = await this.connection.execute(query)
         const empArray = rows.map(x => {
             return {
                 name: x.first_name +" "+ x.last_name,
@@ -76,7 +76,7 @@ class Gamer {
 
     async getDepartments(){
         const query = "select * from department"
-        const [rows, fields] = await this.connection.execute(query)
+        const [rows,] = await this.connection.execute(query)
         const deptArray = rows.map(x => {
             return {
                 name: x.department_name,
