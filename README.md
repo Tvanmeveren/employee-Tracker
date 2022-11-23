@@ -8,5 +8,5 @@ The employee tracker uses a mysql database as a command line application to keep
 download the resportory to your computer, Have mysql2 downloaded onto the computer then run the command "npm I" in the terminal to install the dependencies. then in the terminal type " mysql2 -u root -p" to log into mysql. then type in SOURCE schema.sql then SOURCE seeds.sql. To start the program just type in node. server.js
 
 <h3>Contributions<h3>
-Nathan Darter-TA
+Nathan Darter-TA,
 Katie REdford-TA
